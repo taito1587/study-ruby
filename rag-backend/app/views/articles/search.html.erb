@@ -1,0 +1,15 @@
+<h1>Search Articles</h1>
+
+<%= form_with url: articles_search_path, method: :get, local: true do %>
+  <%= label_tag :query, "Search" %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<h2>Results:</h2>
+<ul>
+  <% @results.each do |article| %>
+    <li><%= article.title %> 
+    <%= article.content %></li>
+  <% end %>
+</ul>
